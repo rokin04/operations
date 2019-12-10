@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+.container-body {
+  width: 600px;
+}
+</style>
+<body>
+  <div class="container container-body">
+    <form class="form-inline" method="GET" action="/cal">
+      <div class="form-group">
+        <input type="number" class="form-control" id="num1" placeholder="Enter value" name="num1">
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" id="num2" placeholder="Enter value" name="num2">
+      </div>
+      <button name="operation" value="add" type="submit" class="btn btn-default">Add</button>
+    </form>
+  </div>
+<br>
+<div class="container container-body">
+  <form class="form-inline" method="GET" action="/cal?operation">
+    <div class="form-group">
+      <input type="number" class="form-control" id="num1" placeholder="Enter value" name="num1">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" id="num2" placeholder="Enter value" name="num2">
+    </div>
+    <button name="operation" value="sub" type="submit" class="btn btn-default">Subtract</button>
+  </form>
+</div>
+<br>
+<div class="container container-body">
+  <form class="form-inline" method="GET" action="/cal">
+    <div class="form-group">
+      <input type="number" class="form-control" id="num1" placeholder="Enter value" name="num1">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" id="num2" placeholder="Enter value" name="num2">
+    </div>
+    <button name="operation" value="multiply" type="submit" class="btn btn-default">Multiply</button>
+  </form>
+</div>
+<br>
+<div class="container container-body">
+    <form class="form-inline" method="GET" action="/cal">
+      <div class="form-group">
+        <input type="number" class="form-control" id="num1" placeholder="Enter value" name="num1">
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" id="num2" placeholder="Enter value" name="num2">
+      </div>
+      <button name="operation" value="divide" type="submit" class="btn btn-default">Divide</button>
+    </form>
+  </div>
+
+</body>
+<script>
+function calculate(value) {
+  console.log('here');
+  $.ajax({
+    url: '/cal',
+    type: 'GET',
+    dataType: 'json',
+    params: value,
+    success: (data) => {
+      console.log(data);
+    }
+  })
+}
+</script>
+</html>
