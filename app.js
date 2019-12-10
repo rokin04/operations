@@ -16,7 +16,7 @@ app.get('/cal', (req, res) => {
     let firstNum = Number(req.query.num1);
     let secondNum = Number(req.query.num2);
     function saveValues(result) {
-        result == 0 ? fs.writeFile('result.txt',(''), (err) => {
+        result == 0 || result == Infinity ? fs.writeFile('result.txt',(''), (err) => {
             if (err) throw err;
             console.log('The file has been created!');
           }) : fs.appendFile('result.txt', (`firstNum:${firstNum},secondNum:${secondNum},operation:${req.query.operation},result:${result} ${'\n'}`), (err) => {
