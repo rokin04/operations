@@ -63,18 +63,4 @@
   </div>
 
 </body>
-<script>
-function calculate(value) {
-  console.log('here');
-  $.ajax({
-    url: '/cal',
-    type: 'GET',
-    dataType: 'json',
-    params: value,
-    success: (data) => {
-      console.log(data);
-    }
-  })
-}
-</script>
 </html>
